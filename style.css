@@ -1,0 +1,561 @@
+:root {
+    --purple: #6200ff;
+    --orange: #ff6b00;
+    --mint: #00e5b0;
+    --white: #ffffff;
+    --text-dark: #1a1a1a;
+    --transition: all 0.3s ease;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+    scroll-behavior: smooth;
+}
+
+body { color: var(--text-dark); overflow-x: hidden; }
+.container { max-width: 1100px; margin: 0 auto; padding: 0 25px; }
+.section-padding { padding: 80px 0; }
+
+.hero {
+    background-color: var(--purple);
+    color: var(--white);
+    position: relative;
+
+    min-height: 100vh;          /* ← riempie tutta la viewport */
+    display: flex;
+    align-items: center;
+
+    padding: 120px 0 140px 0;   /* spazio sotto per la wave */
+}
+
+
+.hero-inner {
+    display: flex;
+    flex-direction: row;   /* TEXT LEFT, IMAGE RIGHT */
+    align-items: center;
+    justify-content: space-between;
+    gap: 60px;
+}
+
+.hero-text {
+    flex: 1;
+    text-align: left;
+    margin-left: 0;
+}
+
+ .hero-text h1 {
+        font-size: 3rem;
+        line-height: 1.2;
+    }
+
+.hero-visual {
+    flex: 1;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.hero-main-img {
+    max-width: 500px;
+    width: 100%;
+}
+
+
+.subtitle{
+    margin-top: 16px;
+    font-size: 24px;
+    
+}
+/* Stilizzazione dell'onda in basso */
+.wave-divider {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    line-height: 0;
+}
+
+.wave-divider svg {
+    display: block;
+    width: 100%;
+    height: 100px;
+}
+
+.highlight-purple {
+    font-weight: 700;           /* bold */
+    background-color: #ddcafb;       /* colore viola del brand */
+}
+
+.highlight-white {
+    font-weight: 700;           /* bold */
+    background-color: #ffffff;      
+}
+
+.highlight-purple2{
+    color: #6200ff;
+    font-weight: 600;
+}
+
+.highlight-orange{
+    color:#ff6b00;
+    font-weight: 600;
+}
+
+.highlight-green{
+    color:#10b981;
+    font-weight: 600;
+}
+
+ @media (min-width: 1025px) {
+
+    .pillar-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 80px; /* distanza tra immagine e testo */
+      text-align: left;
+  }
+
+  /* Zig-zag: inverti solo le righe con .reverse */
+  .pillar-row.reverse {
+      flex-direction: row-reverse;
+  }
+
+  /* Contenitore immagine */
+  .pillar-image-container {
+      flex: 0 0 440px;       /* larghezza fissa */
+      display: flex;
+      justify-content: center;
+  }
+
+  /* Immagini fisse */
+  .pillar-img {
+      width: 440px;
+      height: 440px;
+      object-fit: cover;
+  }
+
+  /* Contenuto testo */
+  .pillar-content {
+      flex: 1;               /* prende lo spazio rimanente */
+  }
+}
+
+
+
+
+/* BUTTONS & HOVER */
+.btn {
+    display: inline-flex;        /* migliore per centratura */
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+
+    padding: 16px 28px;
+    border-radius: 14px;
+    font-weight: 600;
+
+    white-space: normal;         /* ← permette il wrap */
+    word-break: break-word;
+
+    max-width: 260px;            /* evita bottoni lunghissimi */
+    width: 100%;
+
+    transition: var(--transition);
+    border: none;
+    cursor: pointer;
+     white-space: nowrap;         /* ✅ impedisce al testo di andare a capo */
+    overflow: hidden;            /* taglia eventuale eccedenza */
+    text-overflow: ellipsis;     /* opzionale, mostra "..." se troppo lungo */
+}
+
+.cta-center-wrapper {
+    display: flex;
+    justify-content: center;    /* centra il bottone orizzontalmente */
+    flex-wrap: nowrap;          /* impedisce il wrap */
+    gap: 16px;                  /* distanza se ci sono più bottoni */
+}
+
+/* Bottone */
+.cta-center {
+    display: inline-flex;       /* testo + icona allineati */
+    align-items: center;
+    gap: 8px;
+    white-space: nowrap;        /* ✅ impedisce al testo di andare a capo */
+    overflow:hidden;          /* lascia tutto visibile */
+    text-overflow: clip;        /* evita i "..." */
+    padding: 16px 28px;
+    border-radius: 14px;
+    font-weight: 600;
+    background-color: var(--white);
+    color: var(--white);
+    cursor: pointer;
+    border: none;}
+
+.btn {
+        text-decoration: none;      /* rimuove sottolineatura */
+    display: inline-flex;        /* allinea testo + icona */
+    align-items: center;         /* centra verticalmente */
+    gap: 8px;                    /* spazio tra testo e icona */
+
+    white-space: nowrap;         /* ✅ impedisce al testo di andare a capo */
+    overflow: hidden;            /* taglia eventuale eccedenza */
+    text-overflow: ellipsis;     /* opzionale, mostra "..." se troppo lungo */      
+    }
+
+    .btn-icon {
+    width: 20px;                 /* dimensione icona */
+    height: 20px;
+    display: inline-block;
+}
+
+.btn-white { background: var(--white); color: var(--purple); }
+.btn-white.outline { border: 2px solid var(--purple); background: transparent; }
+.btn-orange { background: var(--orange); color: var(--white); }
+
+.btn:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 15px rgba(0,0,0,0.15);
+    filter: brightness(1.05);
+}
+
+.cta-stack {
+    display: flex;
+    gap: 16px;
+    margin-top: 30px;
+    flex-wrap: wrap;             /* ← permette wrapping su tablet */
+}
+
+
+
+
+
+
+/* PILLARS */
+.pillar-row { 
+     display: flex;
+      flex-direction: row;          /* default: immagine a sinistra, testo a destra */
+      align-items: center;          /* ← centro verticale testo e immagine */
+      justify-content: space-between;
+      gap: 60px;
+      text-align: center !important;
+      margin-bottom: 80px;
+  }
+
+
+.badge {
+    display: inline-block;       /* si adatta al contenuto */
+    padding: 6px 12px;           /* spazio interno */
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 0.85rem;
+    color: #fff;
+    background-color: #ddcafb;   /* default, puoi cambiare con classi colore */
+    white-space: normal;         /* permette al testo di andare a capo se troppo lungo */
+    word-break: break-word;      /* va a capo quando necessario */
+    max-width: fit-content;      /* importante: non occupa tutta la riga */
+    margin-bottom: 10px;
+}
+
+/* Colori per badge */
+.badge.purple {
+    background-color: #ddcafb;
+}
+
+.badge.orange {
+    background-color: #fff1e7;
+}
+
+.badge.green {
+    background-color: #d8faee;  /* oppure #10b981 se preferisci */
+}.purple { color: var(--purple); }
+.orange { color: var(--orange); }
+.green { color: #10b981; }
+
+/* CLAIM SECTION (NUOVA) */
+.claim-section { background: var(--white); text-align: center; }
+.claim-title { font-size: 1.8rem; font-weight: 700; margin-bottom: 40px; margin-top: -80px; }
+.stick-figures-row { font-size: 3rem; display: flex; justify-content: space-around; padding: 40px 0; }
+.cta-center { margin-top: 30px; }
+
+/* TEAM */
+.team { background-color: var(--mint); text-align: center; }
+.team-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-top: 40px; }
+.team-card { text-decoration: none; color: inherit; transition: var(--transition); }
+.team-card:hover { transform: translateY(-5px); }
+.avatar { width: 100%; aspect-ratio: 1/1; border-radius: 25px; margin-bottom: 15px; }
+
+/* TINTE IMMAGINI */
+.purple-tint { background-color: var(--purple); background-blend-mode: multiply; }
+.orange-tint { background-color: var(--orange); background-blend-mode: multiply; }
+.green-tint { background-color: #10b981; background-blend-mode: multiply; }
+
+/* FOOTER */
+.footer { padding: 60px 0; text-align: center; }
+.email-form { display: flex; flex-direction: column; gap: 10px; max-width: 500px; margin: 30px auto; }
+.email-form input { padding: 16px; border-radius: 12px; border: 1px solid #ccc; font-size: 1rem; }
+
+.personas-container {
+    display: flex;
+    justify-content: center;  /* centra orizzontalmente */
+    align-items: center;      /* centra verticalmente */
+}
+
+/* Immagine che mantiene proporzioni */
+.personas-img {
+    display: block;          /* evita inline issues */
+    max-width: 100%;         /* non esce mai dal container */
+    height: auto;            /* mantiene proporzioni */
+    object-fit: contain;     /* contenuto adattato senza stretch */
+}
+
+.google-form-wrapper iframe {
+    border: none;       /* rimuove il bordo dell'iframe */
+    width: 100%;         /* responsivo */
+    max-width: 1000px;    /* mantiene le dimensioni simili al resto del form */
+    min-height: 500px;   /* altezza minima */
+}
+
+.team {
+    background-color: var(--mint);
+    text-align: center;       /* centra i testi sopra la griglia */
+    padding: 80px 20px;
+}
+
+.team-grid {
+    margin-top: 60px;
+    display: grid;
+    gap: 20px;
+    margin: 0 auto;           /* centra l'intero contenitore */
+    width: 100%;              /* occupa tutto lo spazio disponibile */
+    max-width: 1200px;        /* optional: evita che diventi troppo larga */
+}
+
+
+@media (min-width: 1025px) {
+    .cta-stack {
+        flex-wrap: nowrap;
+    }
+
+    .btn {
+        text-decoration: none;      /* rimuove sottolineatura */
+    display: inline-flex;        /* permette di allineare testo e icona */
+    align-items: center;         /* centra verticalmente */
+    gap: 8px;       
+    }
+
+    .btn-icon {
+    width: 20px;                 /* dimensione icona */
+    height: 20px;
+    display: inline-block;
+}
+
+    .pillar-row {
+      display: flex;
+      flex-direction: row;          /* default: immagine a sinistra, testo a destra */
+      align-items: center;          /* ← centro verticale testo e immagine */
+      justify-content: space-between;
+      gap: 60px;
+      text-align: left !important;
+      margin-bottom: 80px;
+  }
+
+  .pillar-row.reverse {
+      flex-direction: row-reverse;  /* secondo pillar invertito */
+  }
+
+  .pillar-image-container {
+      flex: 0 0 440px;              /* larghezza fissa */
+      display: flex;
+      justify-content: center;      /* centra immagine orizzontalmente */
+      align-items: center;          /* centra immagine verticalmente */
+  }
+
+  .pillar-img {
+      width: 440px;
+      height: 440px;
+      object-fit: cover;            /* mantiene proporzioni */
+  }
+
+  .pillar-content {
+      flex: 1;                      /* prende lo spazio rimanente */
+      display: flex;
+      flex-direction: column;
+      justify-content: center;      /* centra testo verticalmente rispetto all’immagine */
+  }
+  .claim-title { font-size: 1.8rem; font-weight: 700; margin-bottom: 40px; margin-top: -80px; }
+
+}
+  .team-grid {
+        margin-top: 60px;
+        grid-template-columns: repeat(auto-fit, minmax(0, 320px));
+        justify-content: center;  /* ✅ centra tutte le card sulla riga */
+        align-items: center;
+        text-decoration: none;
+    }
+
+    .team-image{
+        text-decoration: none;
+        color: #1a1a1a;
+        max-width: 280px;
+        transition: var(--transition);
+        border: none;
+        cursor: pointer;
+    }
+
+
+
+@media (max-width: 1024px) {
+
+    .hero {
+        padding: 140px 0 100px 0;
+    }
+
+    .hero-text {
+        text-align: center;
+    }
+
+    .hero-text h1 {
+        font-size: 2.8rem;
+    }
+
+    .subtitle {
+        font-size: 1.2rem;
+    }
+
+    .hero-visual {
+        display: none;   /* IMAGE DISAPPEARS */
+    }
+
+    .cta-stack {
+        flex-direction: row;
+        justify-content: center;
+    }
+
+  
+
+     .personas-img {
+        max-height: 350px; /* altezza massima per tablet */
+        width: auto;       /* mantiene proporzioni */
+    }
+    .team-grid {
+        grid-template-columns: repeat(auto-fit, minmax(0, 280px));
+        justify-content: center;   /* ✅ allinea a sinistra */
+    }
+
+}
+
+
+@media (max-width: 640px) {
+
+    .hero {
+        padding: 100px 0 80px 0;
+    }
+
+    .hero-inner {
+        flex-direction: column;
+        text-align: center;
+        gap: 30px;
+    }
+
+    .hero-text h1 {
+        font-size: 2.2rem;
+    }
+
+    .cta-stack {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    /* ✅ Pillar images smaller */
+    .pillar-img {
+        width: 280px;
+        height: 280px;
+    }
+
+
+
+    .email-form {
+        flex-direction: column;
+    }
+
+
+     .personas-img {
+        max-height: 300px; /* altezza massima per mobile */
+        width: auto;       /* mantiene proporzioni */
+    }
+ 
+.avatar {
+    width: 100%;
+    aspect-ratio: 1/1;
+    border-radius: 25px;
+    margin-bottom: 15px;
+    object-fit: cover; /* mantiene proporzioni dell'immagine */
+}
+}
+
+
+
+/* TABLET: <=1024px */
+@media (max-width: 1024px) {
+
+  .pillar-row,
+  .pillar-row.reverse {
+      flex-direction: column;
+      text-align: center;
+      gap: 30px;
+  }
+
+  .pillar-img {
+      width: 280px;
+      height: 280px;
+  }
+
+  .pillar-image-container {
+      width: 100%;
+      justify-content: center;
+  }
+  /* Hero content centering */
+    .hero-inner {
+        flex-direction: column;      /* stack verticale */
+        align-items: center;         /* centra contenuto orizzontalmente */
+        text-align: center;          /* centra testo */
+        gap: 30px;                   /* distanza tra testo e eventuali elementi */
+    }
+
+    .hero-text {
+        text-align: center;          /* centra il testo */
+        margin-left: 0;
+    }
+
+    /* Nascondi l'immagine hero */
+    .hero-visual {
+        display: none;
+    }
+
+    /* CTA wrappano se necessario */
+    .cta-stack {
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+
+    .btn {
+        max-width: 260px;            /* evita bottoni troppo lunghi */
+        white-space: normal;
+        word-break: break-word;
+    }
+
+    /* Riduci un po' le dimensioni del testo */
+    .hero-text h1 {
+        font-size: 2.8rem;
+    }
+
+    .subtitle {
+        font-size: 1.2rem;
+    }
+        
+  }
+
+
